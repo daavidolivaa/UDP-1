@@ -1,6 +1,5 @@
 package es.etg.dam;
 
-import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
@@ -29,8 +28,8 @@ public class Recibir extends Thread {
                 System.out.println(MENSAJE + datos);
                 System.out.print(mensajePrompt);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            new RuntimeException(e);
         }
     }
 }

@@ -1,7 +1,6 @@
 package es.etg.dam;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -32,8 +31,8 @@ public class Enviar extends Thread {
                 DatagramPacket msg = new DatagramPacket(mensaje, mensaje.length, destino, puertoDestino);
                 socket.send(msg);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            new RuntimeException(e);
         }
     }
 }
