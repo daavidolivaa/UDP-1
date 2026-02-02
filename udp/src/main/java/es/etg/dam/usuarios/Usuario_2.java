@@ -13,9 +13,10 @@ public class Usuario_2 {
         DatagramSocket socket = new DatagramSocket(Usuario_1.PUERTO_ENVIO);
         InetAddress destino = InetAddress.getByName(Usuario_1.HOST);
 
-        Recibir recibir = new Recibir(socket, Usuario_1.MENSAJE_PROMPT);
-        Enviar enviar = new Enviar(socket, destino, Usuario_1.PUERTO_ESCUCHA, Usuario_1.MENSAJE_PROMPT);
+        Thread recibir = new Thread(new Recibir(socket, Usuario_1.MENSAJE_PROMPT));
         recibir.start();
+
+        Thread enviar = new Thread(new Enviar(socket, destino, Usuario_1.PUERTO_ESCUCHA, Usuario_1.MENSAJE_PROMPT));
         enviar.start();
     }
 }

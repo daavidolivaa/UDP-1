@@ -10,7 +10,7 @@ import java.net.InetAddress;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class Enviar extends Thread {
+public class Enviar implements Runnable {
 
     private final DatagramSocket socket;
     private final InetAddress destino;

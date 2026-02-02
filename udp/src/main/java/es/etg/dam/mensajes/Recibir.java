@@ -7,7 +7,7 @@ import java.net.DatagramSocket;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class Recibir extends Thread {
+public class Recibir implements Runnable {
 
     private final DatagramSocket socket;
     private final String mensajePrompt;
